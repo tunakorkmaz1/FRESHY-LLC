@@ -1,0 +1,505 @@
+:root {
+    --primary-color: #00a8e8;
+    /* Fresh Blue */
+    --secondary-color: #ffffff;
+    /* Clean White */
+    --accent-color: #7bed9f;
+    /* Nature Green */
+    --text-color: #333333;
+    --light-gray: #f4f4f4;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 168, 232, 0.4);
+}
+
+/* Header */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    /* Increased from 60px to fit larger logo */
+    /* Fixed height for better vertical alignment control */
+}
+
+.logo-container {
+    text-decoration: none;
+    display: block;
+}
+
+.freshy-badge {
+    background-color: #38b6ff;
+    padding: 5px 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+}
+
+.freshy-main {
+    font-family: 'Caveat', cursive;
+    color: #ffffff;
+    font-size: 2rem;
+    /* Scaled down from 70px for header */
+}
+
+.freshy-sub {
+    font-family: 'Caveat Brush', cursive;
+    color: #004aad;
+    font-size: 0.6rem;
+    /* Scaled down */
+    margin-top: -5px;
+}
+
+/* Header Logo Specifics */
+.logo-container .freshy-badge {
+    padding: 3px 12px;
+    background-color: transparent;
+    /* Remove background */
+}
+
+/* Header Logo Specifics */
+.logo-container .freshy-badge {
+    padding: 0 12px;
+    background-color: transparent;
+    /* Remove background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-left: -20px;
+    /* Pull logo container further left per request */
+}
+
+.logo-container .freshy-main {
+    font-size: 5rem;
+    /* Massive size per request */
+    color: #004aad;
+    /* Navy */
+    line-height: 0.8;
+    margin-bottom: 5px;
+    margin-left: -5px;
+    /* Move slightly left */
+    /* Add space to avoid overlap */
+    display: block;
+}
+
+.logo-container .freshy-sub {
+    font-size: 1.2rem;
+    color: #38b6ff;
+    /* Light Blue */
+    font-family: 'Caveat Brush', cursive;
+    display: block;
+    margin-top: 5px;
+    /* Push down to clear 'y' overlap */
+    /* Adjust positioning relative to main text */
+}
+
+/* Ensure no background on logo image if used, but we switched to text span */
+.logo img {
+    height: 40px;
+    display: block;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+    /* Vertically align links with button */
+    margin: 0;
+    padding: 0;
+}
+
+nav a.nav-link {
+    font-weight: 500;
+    font-size: 1.05rem;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav a.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav a.nav-link:hover::after,
+nav a.nav-link.active::after {
+    width: 100%;
+}
+
+nav a.nav-link:hover,
+nav a.nav-link.active {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    /* Full screen height minus header approx */
+    min-height: 100vh;
+    min-height: 100vh;
+    padding: 120px 0 0;
+    /* Increased top padding for larger header */
+    /* Add top padding to account for fixed header */
+    background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Mission Section */
+.mission {
+    padding: 100px 0;
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+.mission h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.mission p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #555;
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 100px 0;
+    background-color: var(--light-gray);
+}
+
+.gallery h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Partners Section */
+.partners {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.partners h2 {
+    margin-bottom: 50px;
+    font-size: 2rem;
+}
+
+.partners-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    align-items: center;
+}
+
+.partner-logo {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    max-width: 150px;
+}
+
+.partner-logo:hover {
+    opacity: 1;
+}
+
+/* Contact Page */
+.contact-section {
+    padding: 160px 0 100px;
+    background-color: var(--light-gray);
+    min-height: 90vh;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.submit-btn {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.contact-email {
+    margin-top: 30px;
+    text-align: center;
+    color: #666;
+}
+
+.contact-email a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .contact-container {
+        padding: 30px;
+    }
+}
+
+/* Round 3 Updates - Handwritten Font & Hero Backdrop - REVISED Round 4 & 7 */
+.product-backdrop {
+    flex: 1;
+    background-color: transparent;
+    /* Changed to white space per user request */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    position: relative;
+    /* Removed box-shadow, animation, and plastic sheen for "white space" */
+    /* Removed box-shadow, animation, and plastic sheen for "white space" */
+}
+
+.pack-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.pack-freshy {
+    font-family: 'Caveat', cursive;
+    color: #ffffff;
+    /* Renk beyaz */
+    font-size: 5rem;
+    /* ~70px scale */
+    line-height: 1;
+}
+
+.pack-sub {
+    font-family: 'Caveat Brush', cursive;
+    color: #004aad;
+    /* Cobalt Blue */
+    font-size: 1.5rem;
+    /* ~14px scale relative to big text */
+}
+
+.pack-details {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pack-weight {
+    font-family: 'Caveat Brush', cursive;
+    color: #ffffff;
+    /* Renk beyaz */
+    font-size: 1rem;
+    /* ~9px scale */
+}
+
+.pack-url {
+    font-family: 'Caveat Brush', cursive;
+    color: #004aad;
+    /* Cobalt Blue */
+    font-size: 1.1rem;
+    /* ~10px scale */
+}
