@@ -45,6 +45,10 @@ a {
 }
 
 /* Utility Classes */
+.mobile-break {
+    display: none;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -434,13 +438,76 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .mobile-break {
+        display: block;
+    }
+
+    /* Header & Nav Fixes */
+    .nav-container {
+        padding: 10px 20px;
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .logo-container {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    nav a.nav-link {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.95rem;
+    }
+
+    /* Adjust anchor scroll position for thinner mobile header */
+    html {
+        scroll-padding-top: 80px;
+    }
+
+    /* Hero Section Fixes */
+    .hero {
+        padding: 140px 0 40px;
+        min-height: auto;
+    }
+
     .hero-content {
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
+        gap: 20px;
     }
 
     .hero-text h1 {
         font-size: 2.5rem;
+    }
+
+    /* Adjust Mission Typography */
+    .mission h2 {
+        font-size: 2rem;
+    }
+
+    .mission h3 {
+        font-size: 1.4rem !important;
+    }
+
+    .partners-grid {
+        gap: 30px !important;
     }
 
     .contact-container {
