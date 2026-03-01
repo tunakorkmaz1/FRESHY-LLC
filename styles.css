@@ -458,6 +458,63 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Tablet specific utility */
+.tablet-gallery-item {
+    display: none;
+}
+
+/* Tablet / iPad Specific Adjustments */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    /* Top Nav Panel */
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .logo-container .freshy-badge {
+        margin-left: -10px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    .btn {
+        padding: 10px 22px;
+        white-space: nowrap;
+        /* Forces 'Contact Us' to 1 line */
+    }
+
+    /* Hero Panel */
+    .hero {
+        padding-top: 220px;
+        /* Increased space after top panel */
+        padding-bottom: 50px;
+        min-height: auto;
+        display: block;
+        /* Top align instead of vertical center */
+    }
+
+    .hero-content {
+        flex-direction: column;
+        /* Move text above image */
+        text-align: left;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+        /* Small enough so both phrases fit on 1 line each */
+        white-space: nowrap;
+    }
+
+    /* Reveal 4th gallery item to fill empty bottom-right gap */
+    .tablet-gallery-item {
+        display: block;
+    }
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     .mobile-break {
