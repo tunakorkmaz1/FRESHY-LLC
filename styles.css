@@ -201,14 +201,22 @@ nav a.nav-link::after {
     transition: width 0.3s ease;
 }
 
-nav a.nav-link:hover::after,
 nav a.nav-link.active::after {
     width: 100%;
 }
 
-nav a.nav-link:hover,
 nav a.nav-link.active {
     color: var(--primary-color);
+}
+
+@media (hover: hover) {
+    nav a.nav-link:hover::after {
+        width: 100%;
+    }
+
+    nav a.nav-link:hover {
+        color: var(--primary-color);
+    }
 }
 
 /* Hero Section */
