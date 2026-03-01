@@ -17,6 +17,11 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-padding-top: 40px;
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-body);
     line-height: 1.6;
@@ -80,8 +85,8 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    /* Increased from 60px to fit larger logo */
-    /* Fixed height for better vertical alignment control */
+    max-width: 100%;
+    padding: 0 50px;
 }
 
 .logo-container {
