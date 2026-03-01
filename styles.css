@@ -444,11 +444,11 @@ footer {
 
     /* Header & Nav Fixes */
     .nav-container {
-        padding: 10px 20px;
+        padding: 10px 5px;
         flex-wrap: wrap;
         height: auto;
         justify-content: center;
-        gap: 10px;
+        gap: 5px;
     }
 
     .logo-container {
@@ -463,17 +463,17 @@ footer {
 
     nav ul {
         flex-wrap: wrap;
-        gap: 15px;
+        gap: 12px;
         justify-content: center;
     }
 
     nav a.nav-link {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .btn {
-        padding: 8px 16px;
-        font-size: 0.95rem;
+        padding: 8px 14px;
+        font-size: 0.9rem;
     }
 
     /* Adjust anchor scroll position for thinner mobile header */
@@ -483,7 +483,7 @@ footer {
 
     /* Hero Section Fixes */
     .hero {
-        padding: 140px 0 40px;
+        padding: 130px 15px 40px;
         min-height: auto;
     }
 
@@ -494,7 +494,11 @@ footer {
     }
 
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1.05rem;
     }
 
     /* Adjust Mission Typography */
@@ -511,7 +515,11 @@ footer {
     }
 
     .contact-container {
-        padding: 30px;
+        padding: 30px 15px;
+    }
+
+    .contact-header p {
+        font-size: 0.95rem;
     }
 }
 
