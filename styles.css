@@ -343,8 +343,12 @@ nav a.nav-link.active {
 
 /* Partners Section */
 .partners {
-    padding: 80px 0;
+    padding: 100px 0 180px;
     text-align: center;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .partners h2 {

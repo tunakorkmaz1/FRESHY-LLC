@@ -77,15 +77,21 @@ document.addEventListener('DOMContentLoaded', function () {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
+            if (pageYOffset >= (sectionTop - 300)) {
+                if (section.getAttribute('id')) {
+                    current = section.getAttribute('id');
+                }
             }
         });
 
+        // Ensure bottom section is highlighted when hitting bottom of the page
+        if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 50) {
+            current = 'partners';
+        }
+
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
+            if (current !== '' && link.getAttribute('href').includes(current)) {
                 link.classList.add('active');
             }
         });
@@ -93,7 +99,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Handle "Home" being active at top
         if (pageYOffset < 100) {
             navLinks.forEach(link => link.classList.remove('active'));
-            document.querySelector('a[href="index.html"]').classList.add('active');
+            const homeLink = document.querySelector('a[href="index.html"].nav-link');
+            if (homeLink) homeLink.classList.add('active');
         }
     });
 });
