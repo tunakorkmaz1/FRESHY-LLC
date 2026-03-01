@@ -75,17 +75,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('scroll', () => {
         let current = '';
+        let maxVisibleArea = 0;
+
+        const scrollPosition = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= (sectionTop - 300)) {
-                if (section.getAttribute('id')) {
-                    current = section.getAttribute('id');
-                }
+            if (!section.getAttribute('id')) return;
+
+            const rect = section.getBoundingClientRect();
+
+            // Calculate how much of the section is visible in the viewport
+            const visibleHeight = Math.max(0, Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0));
+            const visibleArea = visibleHeight / windowHeight;
+
+            // If this section takes up more screen space than the previous one, it's the current one
+            if (visibleArea > maxVisibleArea && visibleArea > 0.1) {
+                maxVisibleArea = visibleArea;
+                current = section.getAttribute('id');
             }
         });
 
-        // Ensure bottom section is highlighted when hitting bottom of the page
-        if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 50) {
+        // Fallback: Ensure bottom section is highlighted when absolutely bottomed out
+        if ((document.documentElement.scrollHeight - window.innerHeight - scrollPosition) < 50) {
             current = 'partners';
         }
 
@@ -97,9 +109,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Handle "Home" being active at top
-        if (pageYOffset < 100) {
+        if (scrollPosition < 50) {
             navLinks.forEach(link => link.classList.remove('active'));
-            const homeLink = document.querySelector('a[href="index.html"].nav-link');
+            const homeLink = document.querySelector('a[href="index.html"].nav-link:not(.btn)');
             if (homeLink) homeLink.classList.add('active');
         }
     });
