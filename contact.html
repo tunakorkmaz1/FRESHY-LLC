@@ -46,7 +46,7 @@
                     <p>Have questions about FRESHY products?<br class="mobile-break"> We'd love to hear from you!</p>
                 </div>
 
-                <form id="contactForm" name="contact" method="POST" data-netlify="true">
+                <form id="contactForm" name="contact" method="POST" data-netlify="true" novalidate>
                     <input type="hidden" name="form-name" value="contact" />
                     <div class="form-group">
                         <label for="name">Full Name</label>
@@ -60,7 +60,7 @@
 
                     <div class="form-group">
                         <label for="company">Company Name</label>
-                        <input type="text" id="company" name="company" placeholder="Your Business Ltd.">
+                        <input type="text" id="company" name="company" required placeholder="Your Business Ltd.">
                     </div>
 
                     <div class="form-group">

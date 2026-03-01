@@ -6,6 +6,23 @@ document.addEventListener('DOMContentLoaded', function () {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
+            // Custom Validation
+            const fieldsToValidate = [
+                { id: 'name', label: 'Full Name' },
+                { id: 'email', label: 'Email Address' },
+                { id: 'company', label: 'Company Name' },
+                { id: 'message', label: 'Message' }
+            ];
+
+            for (let field of fieldsToValidate) {
+                const input = document.getElementById(field.id);
+                if (!input.value.trim()) {
+                    alert(`You haven't filled out the "${field.label}" section.`);
+                    input.focus();
+                    return; // Stop form submission if invalid
+                }
+            }
+
             const submitBtn = this.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
 
