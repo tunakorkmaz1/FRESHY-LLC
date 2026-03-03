@@ -374,18 +374,92 @@ nav a.nav-link.active {
     /* Optional padding so shadow doesn't clip content */
 }
 
+/* Gallery Slider Dots */
+.gallery-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+.zoomable {
+    cursor: zoom-in;
+}
+
+/* Lightbox (Zoom Modal) */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: var(--primary-color);
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    color: #008cc2;
+}
+
 /* Partners Section */
 .partners {
-    padding: 100px 0 180px;
+    padding: 100px 0 100px;
     text-align: center;
-    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .partners h2 {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     font-size: 2rem;
 }
 

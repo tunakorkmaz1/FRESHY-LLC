@@ -72,23 +72,27 @@
             <h2>Experience FRESHY</h2>
             <div class="gallery-slider">
                 <div class="gallery-item">
-                    <img src="Freshy photos png copy/freshy-4.png" alt="Freshy Wipe Detail 1">
+                    <img src="Freshy photos png copy/freshy-4.png" alt="Freshy Wipe Detail 1" class="zoomable">
                 </div>
                 <div class="gallery-item">
-                    <img src="Freshy photos png copy/freshy-7.png" alt="Freshy Wipe Detail 2">
+                    <img src="Freshy photos png copy/freshy-7.png" alt="Freshy Wipe Detail 2" class="zoomable">
                 </div>
                 <div class="gallery-item">
-                    <img src="Freshy photos png copy/freshy-8.png" alt="Freshy Wipe Detail 3">
+                    <img src="Freshy photos png copy/freshy-8.png" alt="Freshy Wipe Detail 3" class="zoomable">
                 </div>
                 <div class="gallery-item">
-                    <img src="Freshy photos png copy/freshy-10.png" alt="Freshy Wipe Detail 4">
+                    <img src="Freshy photos png copy/freshy-10.png" alt="Freshy Wipe Detail 4" class="zoomable">
                 </div>
                 <div class="gallery-item">
-                    <img src="Freshy photos png copy/freshy-11.png" alt="Freshy Wipe Detail 5">
+                    <img src="Freshy photos png copy/freshy-11.png" alt="Freshy Wipe Detail 5" class="zoomable">
                 </div>
                 <div class="gallery-item">
-                    <img src="Freshy photos png copy/freshy-9.png" alt="Freshy Wipe Detail 6">
+                    <img src="Freshy photos png copy/freshy-9.png" alt="Freshy Wipe Detail 6" class="zoomable">
                 </div>
+            </div>
+
+            <div class="gallery-dots" id="gallery-dots">
+                <!-- Dots injected by JS -->
             </div>
         </div>
     </section>
@@ -97,10 +101,8 @@
     <section id="partners" class="partners">
         <div class="container">
             <h2>Our Partners</h2>
-            <div class="partners-grid" style="gap: 100px;">
-                <span style="font-family: 'Outfit', sans-serif; font-size: 2rem; color: #555;">Text</span>
-                <span style="font-family: 'Outfit', sans-serif; font-size: 2rem; color: #555;">Text</span>
-                <span style="font-family: 'Outfit', sans-serif; font-size: 2rem; color: #555;">Text</span>
+            <div class="partners-grid">
+                <!-- Empty for now, wait for partner logos -->
             </div>
         </div>
     </section>
@@ -111,6 +113,12 @@
             <p>&copy; 2025 FRESHY LLC. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Lightbox Modal for Zooming -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
 
     <script src="script.js"></script>
 </body>
