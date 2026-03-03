@@ -323,16 +323,31 @@ nav a.nav-link.active {
 .gallery h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
+    /* Increased from 50px */
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.gallery-slider {
+    display: flex;
     gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 20px;
+    /* Space for scrollbar if visible during scroll */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.gallery-slider::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
 }
 
 .gallery-item {
+    flex: 0 0 calc(33.333% - 20px);
+    /* 3 items visible, accounting for gap */
+    scroll-snap-align: start;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
@@ -345,9 +360,16 @@ nav a.nav-link.active {
 
 .gallery-item img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    /* Let the image height scale naturally based on width for the PNGs, or set a fixed height if they get too tall */
+    height: auto;
+    min-height: 300px;
+    object-fit: contain;
+    /* Ensures the whole wipe packet is visible */
     display: block;
+    background-color: transparent;
+    /* Keep transparent */
+    padding: 10px;
+    /* Optional padding so shadow doesn't clip content */
 }
 
 /* Partners Section */
@@ -467,10 +489,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Tablet specific utility */
-.tablet-gallery-item {
-    display: none;
-}
+/* Empty, no longer needed */
 
 /* Tablet / iPad Specific Adjustments */
 @media (min-width: 601px) and (max-width: 1024px) {
@@ -518,9 +537,9 @@ footer {
         white-space: nowrap;
     }
 
-    /* Reveal 4th gallery item to fill empty bottom-right gap */
-    .tablet-gallery-item {
-        display: block;
+    /* Hide scrollbar completely but allow swipe */
+    .gallery-slider {
+        padding-bottom: 15px;
     }
 }
 
@@ -607,12 +626,17 @@ footer {
         gap: 30px !important;
     }
 
-    .contact-container {
-        padding: 30px 15px;
+    /* Make gallery slider show 1 image per view on mobile */
+    .gallery-slider {
+        gap: 15px;
+        padding: 0 10px;
+        /* Add slight side padding so items feel centered when snapped */
     }
 
-    .contact-header p {
-        font-size: 0.95rem;
+    .gallery-item {
+        flex: 0 0 90%;
+        /* Almost 100% so users can see a sliver of the next image */
+        scroll-snap-align: center;
     }
 }
 
