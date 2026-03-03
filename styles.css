@@ -238,7 +238,8 @@ nav a.nav-link.active {
 .hero-content {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 80px;
+    /* Increased gap spacing for desktop */
     width: 100%;
     height: 100%;
     justify-content: space-between;
@@ -586,6 +587,11 @@ footer {
 
     .hero-text p {
         font-size: 1.05rem;
+    }
+
+    .hero-product-img {
+        margin-top: 30px;
+        /* Move down so animation doesn't clip button */
     }
 
     /* Adjust Mission Typography */
