@@ -348,21 +348,23 @@ nav a.nav-link.active {
     flex: 0 0 calc(33.333% - 20px);
     /* 3 items visible, accounting for gap */
     scroll-snap-align: start;
-    border-radius: 15px;
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    background: transparent;
+    box-shadow: none;
     transition: transform 0.3s ease;
 }
 
 .gallery-item:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
 }
 
 .gallery-item img {
     width: 100%;
     /* Let the image height scale naturally based on width for the PNGs, or set a fixed height if they get too tall */
     height: auto;
-    min-height: 300px;
+    min-height: 400px;
+    /* Increased to enlarge default size */
     object-fit: contain;
     /* Ensures the whole wipe packet is visible */
     display: block;
